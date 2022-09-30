@@ -1,26 +1,27 @@
 package com.mosu.tests;
 
-import java.time.Duration;
-import org.openqa.selenium.WebDriver;
-import org.openqa.selenium.chrome.ChromeDriver;
 import org.testng.annotations.AfterMethod;
 import org.testng.annotations.BeforeMethod;
 
+import com.mosu.driver.Driver;
+
 public class BaseTest {
 
-	WebDriver driver;
+	protected BaseTest(){
+
+	}
 
 	@BeforeMethod
 	public void setUp() {
-		driver = new ChromeDriver();
-		driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(30));
-		driver.manage().window().maximize();
-		driver.get("https://www.google.com/");
+
+		Driver.initDriver();
+
 	}
-	
+
 	@AfterMethod
 	public void tearDown() {
-		driver.quit();
+
+		Driver.quitDriver();
 	}
-	
+
 }

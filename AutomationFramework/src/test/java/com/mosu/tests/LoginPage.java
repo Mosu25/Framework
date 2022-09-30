@@ -4,10 +4,16 @@ import org.openqa.selenium.By;
 import org.openqa.selenium.Keys;
 import org.testng.annotations.Test;
 
-public class LoginPage extends BaseTest{
+import com.mosu.driver.Driver;
 
+public final class LoginPage extends BaseTest{
+
+	private LoginPage(){
+		
+	}
+	
 	@Test
 	public void searchAmazon() {
-		driver.findElement(By.name("q")).sendKeys("Amazon",Keys.ENTER);
+		Driver.driver.findElement(By.name("q")).sendKeys("Amazon",Keys.ENTER);
 	}
 }
