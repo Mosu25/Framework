@@ -6,5 +6,5 @@
       <class name="com.mosu.tests.LoginPage"/>
       <class name="com.mosu.tests.HomePage"/>
     </classes>
-  </test> <!-- Test -->
-</suite> <!-- Suite -->
+  </test>
+</suite>

@@ -4,7 +4,7 @@ import org.openqa.selenium.By;
 import org.openqa.selenium.Keys;
 import org.testng.annotations.Test;
 
-import com.mosu.driver.Driver;
+import com.mosu.driver.DriverManager;
 
 public final class LoginPage extends BaseTest{
 
@@ -14,6 +14,7 @@ public final class LoginPage extends BaseTest{
 	
 	@Test
 	public void searchAmazon() {
-		Driver.driver.findElement(By.name("q")).sendKeys("Amazon",Keys.ENTER);
+		DriverManager.getDriver().findElement(By.name("q")).sendKeys("Amazon",Keys.ENTER);
 	}
+	
 }

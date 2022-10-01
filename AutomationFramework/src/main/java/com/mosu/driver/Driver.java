@@ -3,29 +3,30 @@ package com.mosu.driver;
 import java.time.Duration;
 import java.util.Objects;
 
-import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
 
-public class Driver {
-
-	public static WebDriver driver;
-
+public final class Driver {
+	
+	private Driver(){
+		
+	}
+	
 	public static void initDriver() {
 
-		if(Objects.isNull(driver)) {
-			driver = new ChromeDriver();
-			driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(30));
-			driver.manage().window().maximize();
-			driver.get("https://www.google.com/");
+		if(Objects.isNull(DriverManager.getDriver())) {
+			DriverManager.setDriver(new ChromeDriver());
+			DriverManager.getDriver().manage().timeouts().implicitlyWait(Duration.ofSeconds(30));
+			DriverManager.getDriver().get("https://www.google.com");
+//			driver.manage().window().maximize();
 		}
 
 	}
 
 	public static void quitDriver() {
 
-		if(Objects.nonNull(driver)) {
-			driver.quit();
-			driver=null;
+		if(Objects.nonNull(DriverManager.getDriver())) {
+			DriverManager.getDriver().quit();
+			DriverManager.unload();
 		}
 	}
 

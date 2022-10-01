@@ -4,7 +4,7 @@ import org.openqa.selenium.By;
 import org.openqa.selenium.Keys;
 import org.testng.annotations.Test;
 
-import com.mosu.driver.Driver;
+import com.mosu.driver.DriverManager;
 
 public final class HomePage extends BaseTest{
 
@@ -14,7 +14,8 @@ public final class HomePage extends BaseTest{
 	
 	@Test
 	public void searchFlipkart() {
-		Driver.driver.findElement(By.name("q")).sendKeys("Flipkart",Keys.ENTER);
+		
+		DriverManager.getDriver().findElement(By.name("q")).sendKeys("Flipkart",Keys.ENTER);
 	}
 
 }
