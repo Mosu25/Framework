@@ -5,18 +5,20 @@ import java.util.Objects;
 
 import org.openqa.selenium.chrome.ChromeDriver;
 
+import com.mosu.utils.PropertyFile;
+
 public final class Driver {
 	
 	private Driver(){
 		
 	}
 	
-	public static void initDriver() {
+	public static void initDriver() throws Exception {
 
 		if(Objects.isNull(DriverManager.getDriver())) {
 			DriverManager.setDriver(new ChromeDriver());
 			DriverManager.getDriver().manage().timeouts().implicitlyWait(Duration.ofSeconds(30));
-			DriverManager.getDriver().get("https://www.google.com");
+			DriverManager.getDriver().get(PropertyFile.getValue("url"));
 //			driver.manage().window().maximize();
 		}
 
