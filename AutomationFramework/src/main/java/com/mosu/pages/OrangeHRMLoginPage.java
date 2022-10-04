@@ -13,20 +13,24 @@ public final class OrangeHRMLoginPage {
 	private final By btnlogin = By.xpath("//button[text()=' Login ']");
 
 
-	public void enterUserName(String userName) {
+	public OrangeHRMLoginPage enterUserName(String userName) {
 
 		DriverManager.getDriver().findElement(txtbox_username).sendKeys(userName);
+		return this;
 	}
 
-	public void enterPassword(String password) {
+	public OrangeHRMLoginPage enterPassword(String password) {
 
-		DriverManager.getDriver().findElement(txtbox_password).sendKeys(password);	
+		DriverManager.getDriver().findElement(txtbox_password).sendKeys(password);
+		return this;
 
 	}
 
-	public void clickLogin() {
+	public HRMHomePage clickLogin() {
 
 		DriverManager.getDriver().findElement(btnlogin).click();
+		return new HRMHomePage();
+	
 	}
 
 
